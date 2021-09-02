@@ -19,42 +19,43 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a th:href="@{/}">Particuliers</a></li>
             <li><a href="badges.html">Societés</a></li>
-            <li><a href="collapsible.html">Client</a></li>
+            <li><a href="collapsible.html">Clients</a></li>
         </ul>
     </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Particuliers</a></li>
+    <li><a th:href="@{/}">Particuliers</a></li>
     <li><a href="badges.html">Societés</a></li>
     <li><a href="collapsible.html">Clients</a></li>
 </ul>
-
 <div class="row">
 </div>
 <div class="row">
 </div>
-<a class="waves-effect waves-light btn pink accent-4 right" th:href="@{addParticulier}">
-<i class="material-icons left">add_circle</i>Ajouter
-</a>
+<div class="row">
+    <form class="col s12" action="#" th:action="@{/addParticulier}"
+          th:object="${particulier}" method="post"  >
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" th:field="*{nom}" id="first_name" type="text" class="validate">
+                <label for="first_name">Nom</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" th:field="*{adresse}" type="text" class="validate">
+                <label for="last_name">Adresse</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="email" th:field="*{mail}" type="text" class="validate">
+                <label for="last_name">Adresse</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="submit" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
 
 
-<table>
-    <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Adresse</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each="client : ${particuliers}">
-        <td th:text="${client.nom}">Nom</td>
-        <td th:text="${client.adresse}">Adresse</td>
-        <td th:text="${client.mail}">Email</td>
-    </tr>
-    </tbody>
-</table>
 </body>
 <!--<script th:src="@{/js/materialize.min.js}" ></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
