@@ -19,6 +19,7 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"  ><a th:href="@{/}">Particuliers</a></li>
             <li th:classappend="${#request.getServletPath() == '/societe' ? 'active' : ''}" ><a th:href="@{societe}">Societés</a></li>
+            <li th:classappend="${#request.getServletPath() == '/produit' ? 'active' : ''}" ><a th:href="@{produit}">Produits</a></li>
             <li ><a href="collapsible.html">Clients</a></li>
         </ul>
     </div>
@@ -29,10 +30,14 @@
 </footer>
 
 
+<div th:fragment="commonJs" th:remove="tag">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{js/materialize.min.js}" ></script>
+</div>
 <div th:fragment="selectJs" th:remove="tag">
     <script type="text/javascript">
         function yesnoCheck(that) {
-            if (that.value == "2") {
+            if (that.value === "2") {
                 // alert("check");
                 document.getElementById("ifSoc").style.display = "block";
                 document.getElementById("mat").required = true;

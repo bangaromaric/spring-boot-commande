@@ -81,7 +81,7 @@ public class MetierImpl implements  IMetier{
 
     @Override
     public Collection<Produit> getProduits() {
-        return null;
+        return produitRepository.findAll();
     }
 
     @Override
