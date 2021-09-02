@@ -6,7 +6,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-<!--    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}"  media="screen,projection"/>-->
+    <!--    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}"  media="screen,projection"/>-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 </head>
@@ -17,15 +17,15 @@
         <a href="#" class="brand-logo center">Nos CLients</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li class="active"><a th:href="@{/}">Particuliers</a></li>
-            <li><a th:href="@{societe}">Societés</a></li>
+            <li><a th:href="@{/}">Particuliers</a></li>
+            <li class="active"><a th:href="@{societe}">Societés</a></li>
             <li><a href="collapsible.html">Client</a></li>
         </ul>
     </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
-    <li class="active"><a href="sass.html">Particuliers</a></li>
-    <li><a th:href="@{societe}">Societés</a></li>
+    <li><a href="sass.html">Particuliers</a></li>
+    <li class="active"><a th:href="@{societe}">Societés</a></li>
     <li><a href="collapsible.html">Clients</a></li>
 </ul>
 
@@ -47,22 +47,25 @@
                 <th>Nom</th>
                 <th>Adresse</th>
                 <th>Email</th>
+                <th>Matricule Finance</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr th:each="client : ${particuliers}">
+            <tr th:each="client : ${societes}">
                 <td th:text="${client.nom}">Nom</td>
                 <td th:text="${client.adresse}">Adresse</td>
                 <td th:text="${client.mail}">Email</td>
+                <td th:text="${client.matriculeFinance}">Matricule Finance</td>
+
             </tr>
             </tbody>
         </table>
         <div>
 
-    <div class="col s12 m4 l2"></div>
+            <div class="col s12 m4 l2"></div>
 
-</div>
+        </div>
 
 
 
