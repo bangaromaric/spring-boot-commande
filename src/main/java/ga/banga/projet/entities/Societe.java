@@ -14,9 +14,7 @@ import java.io.Serializable;
 public class Societe extends Client implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue
-    private Long id;
+
     private String MatriculeFinance;
 
 

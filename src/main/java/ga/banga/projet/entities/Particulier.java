@@ -14,10 +14,6 @@ import java.io.Serializable;
 public class Particulier extends Client implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
 
     public Particulier(String nom, String adresse, String mail) {
         super(nom, adresse, mail);

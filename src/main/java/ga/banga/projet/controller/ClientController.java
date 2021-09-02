@@ -17,14 +17,24 @@ public class ClientController {
     @Autowired
     MetierImpl metier;
 
-    @GetMapping("particuliers")
-    public Collection<Particulier> getClients(){
+    @GetMapping("clients")
+    public Collection<Client> getClients(){
+    Collection<Client> resul = metier.getClients();
+        if (resul.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
+        else
+            return metier.getClients();
+    }
+
+   @GetMapping("particuliers")
+    public Collection<Particulier> getParticulier(){
     Collection<Particulier> resul = metier.getParticuliers();
         if (resul.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
         else
             return metier.getParticuliers();
     }
+
 
     @GetMapping("societes")
     public Collection<Societe> getSocietes(){

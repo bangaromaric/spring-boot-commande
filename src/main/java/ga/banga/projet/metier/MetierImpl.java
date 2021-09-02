@@ -48,7 +48,6 @@ public class MetierImpl implements  IMetier{
     public Client insertClient(Client client) {
         return null;
     }
-
     @Override
     public Collection<Client> getClients() {
         return clientRepository.findAll();
