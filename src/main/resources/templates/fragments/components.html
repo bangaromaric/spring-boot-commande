@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Nos Client</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" th:href="@{css/materialize.min.css}"  media="screen,projection"/>
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+
+</head>
+
+<nav th:fragment="menu" class="nav-extended">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Nos CLients</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}"  ><a th:href="@{/}">Particuliers</a></li>
+            <li th:classappend="${#request.getServletPath() == '/societe' ? 'active' : ''}" ><a th:href="@{societe}">Societés</a></li>
+            <li ><a href="collapsible.html">Clients</a></li>
+        </ul>
+    </div>
+</nav>
+
+<footer th:fragment="footer">
+    <p>&copy; 2020 attacomsian.com</p>
+</footer>
+
+
+<div th:fragment="selectJs" th:remove="tag">
+    <script type="text/javascript">
+        function yesnoCheck(that) {
+            if (that.value == "2") {
+                // alert("check");
+                document.getElementById("ifSoc").style.display = "block";
+                document.getElementById("mat").required = true;
+            } else {
+                document.getElementById("ifSoc").style.display = "none";
+            }
+        }
+    </script>
+</div>
+
+
+
+
+</body>
+</html>

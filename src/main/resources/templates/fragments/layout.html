@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<div th:replace="fragments/components :: head"></div>
+<body>
+<div th:replace="fragments/components :: menu"></div>
+<div class="row"></div>
+<div class="row"></div>
+
+<section th:replace="${content}">
+</section>
+
+
+<footer>
+</footer>
+
+</body>
+<script type="text/javascript" th:src="@{js/materialize.min.js}" ></script>
+<!--<div th:replace="fragments/components :: changeActive"></div>-->
+
+</html>
