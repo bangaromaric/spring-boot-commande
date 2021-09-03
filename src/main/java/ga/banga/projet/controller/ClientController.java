@@ -51,26 +51,19 @@ public class ClientController {
     public ResponseEntity<Particulier> ajouterCommande(/*@RequestBody Particulier particulier*/){
         Particulier particulier = new Particulier("Romaric BANGA","Akebe","bangaromaric@gmail.ga");
         Produit produit = new Produit("Pain", Unite.G,1,125);
-
         produit.setId(5L);
         particulier.setId(1L);
 
-        Set<LigneCommands> listLigneCommands = new HashSet<>();
-
-
-
-//        metier.insertLigneCommand(ligneCommands);
+//      Set<LigneCommands> listLigneCommands = new HashSet<>();
+//      LigneCommands ligneCommands = new LigneCommands(produit,cmd,2);
+//      listLigneCommands.add(ligneCommands);
+//      metier.insertLigneCommand(ligneCommands);
 
        Commande cmd = metier.insertCommande(new Commande(new Date(),2,200,particulier/*,listLigneCommands*/));
 
-        LigneCommands ligneCommands = new LigneCommands(produit,cmd,2);
-        listLigneCommands.add(ligneCommands);
+       metier.insertLigneCommand( new LigneCommands(produit,cmd,2));
 
-        metier.insertLigneCommand( new LigneCommands(produit,cmd,2));
-
-
-
-        return new ResponseEntity<>(particulier, HttpStatus.CREATED);
+       return new ResponseEntity<>(particulier, HttpStatus.CREATED);
     }
 
 

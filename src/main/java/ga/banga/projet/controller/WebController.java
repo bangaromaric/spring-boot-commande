@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
+import java.util.Date;
 
 @Controller
 public class WebController {
@@ -91,12 +92,18 @@ public class WebController {
         model.addAttribute("produits", metier.getProduits());
         return "commande/addCommande";
     }
-//
-//    @PostMapping("/addProduit")
-//    public String produitSubmit(@ModelAttribute Produit produit, Model model) {
+
+    @PostMapping("/addCommandes")
+    public String commandeSubmit(@ModelAttribute Produit produit, Client client, String remise, String quantite, Model model) {
 //        metier.insertProduit(produit);
-//        return "redirect:/produit";
-//    }
+
+        Commande cmd = metier.insertCommande(new Commande(new Date(),Integer.parseInt(remise),produit.getPrixUnitaire(),client));
+
+        metier.insertLigneCommand( new LigneCommands(produit,cmd,Integer.parseInt(quantite)));
+
+
+        return "redirect:/commandes";
+    }
 
 
 

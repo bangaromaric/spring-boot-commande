@@ -28,7 +28,7 @@
             <tr th:each="com : ${commandesLigne}">
                 <td th:text="${com.commande.client.nom}">Commandeur</td>
                 <td th:text="${com.produit.designation}">Désignation</td>
-                <td th:text="${com.commande.montant}">Montant</td>
+                <td th:text="${com.commande.montant}+' FCFA'">Montant</td>
                 <td th:text="${com.commande.remise}+'%'">Remise</td>
                 <td th:text="${com.quatite}">Quantité</td>
                 <td th:text="${com.commande.date}">Date</td>
@@ -36,9 +36,7 @@
             </tbody>
         </table>
         </div>
-
             <div class="col s12 m4 l2"></div>
-
         </div>
 </section>
 
