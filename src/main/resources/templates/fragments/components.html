@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" th:href="@{css/materialize.min.css}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/style.css}"  />
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 
 </head>
@@ -25,8 +26,18 @@
     </div>
 </nav>
 
-<footer th:fragment="footer">
-    <p>&copy; 2020 attacomsian.com</p>
+<footer class="page-footer" style="position:fixed;bottom:0;left:0;width:100%;" th:fragment="footer">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Romaric BANGA
+<!--            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+        </div>
+    </div>
 </footer>
 
 
