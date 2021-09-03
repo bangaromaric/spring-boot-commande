@@ -24,7 +24,8 @@ public class ProjetApplication implements CommandLineRunner {
         metier.insertSociete(new Societe("CNSS","Renovation","contact@cnss.ga","78451"));
         metier.insertParticulier(new Particulier("Romaric BANGA","Akebe","bangaromaric@gmail.ga"));
         metier.insertParticulier(new Particulier("Tanguy BANGA","Akebe","bangatanguy@gmail.ga"));
-        metier.insertProduit(new Produit("Pain", Unite.G,1,125));
+        metier.insertProduit(new Produit("PS5", Unite.MG,20,499000));
+        metier.insertProduit(new Produit("XBOX Serie X", Unite.MG,20,399000));
 
 
     }

@@ -81,15 +81,16 @@ public class WebController {
     public String getLigneCommandes(Model model) {
         Collection<LigneCommands> result = metier.getLigneCommands();
         model.addAttribute("commandesLigne", result);
-//        model.addAttribute("produit",metier.findProduitById(result.))
         return "commande/commandes";
     }
 
-//    @GetMapping("/addProduit")
-//    public String addProduit(Model model) {
-//        model.addAttribute("produit", new Produit());
-//        return "produit/addProduit";
-//    }
+    @GetMapping("/addCommandes")
+    public String addCommande(Model model) {
+        model.addAttribute("produit", new Produit());
+        model.addAttribute("clients", metier.getClients());
+        model.addAttribute("produits", metier.getProduits());
+        return "commande/addCommande";
+    }
 //
 //    @PostMapping("/addProduit")
 //    public String produitSubmit(@ModelAttribute Produit produit, Model model) {
