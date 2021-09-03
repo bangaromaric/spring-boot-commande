@@ -52,7 +52,6 @@ public class WebController {
 
     @PostMapping("/addProduit")
     public String produitSubmit(@ModelAttribute Produit produit, Model model) {
-
             metier.insertProduit(produit);
             return "redirect:/produit";
     }
