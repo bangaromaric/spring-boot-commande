@@ -4,7 +4,6 @@ package ga.banga.projet.controller;
 import ga.banga.projet.entities.Particulier;
 import ga.banga.projet.entities.Produit;
 import ga.banga.projet.entities.Societe;
-import ga.banga.projet.entities.Unite;
 import ga.banga.projet.metier.IMetier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +34,7 @@ public class WebController {
     public String getSocietes(Model model) {
         Collection<Societe> sos = metier.getSocietes();
         model.addAttribute("societes", sos);
-        return "societe";
+        return "client/societe";
     }
 
     @GetMapping("/produit")
@@ -63,7 +62,7 @@ public class WebController {
      @GetMapping("/addClient")
      public String addParticulier(Model model) {
          model.addAttribute("client", new Particulier());
-        return "addClient";
+        return "client/addClient";
      }
 
     @PostMapping("/addClient")
