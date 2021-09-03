@@ -1,9 +1,7 @@
 package ga.banga.projet.controller;
 
 
-import ga.banga.projet.entities.Particulier;
-import ga.banga.projet.entities.Produit;
-import ga.banga.projet.entities.Societe;
+import ga.banga.projet.entities.*;
 import ga.banga.projet.metier.IMetier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,7 +55,6 @@ public class WebController {
     }
 
 
-
      @GetMapping("/addClient")
      public String addParticulier(Model model) {
          model.addAttribute("client", new Particulier());
@@ -78,6 +75,29 @@ public class WebController {
         }
 
     }
+
+
+    @GetMapping("/commandes")
+    public String getLigneCommandes(Model model) {
+        Collection<LigneCommands> result = metier.getLigneCommands();
+        model.addAttribute("commandesLigne", result);
+//        model.addAttribute("produit",metier.findProduitById(result.))
+        return "commande/commandes";
+    }
+
+//    @GetMapping("/addProduit")
+//    public String addProduit(Model model) {
+//        model.addAttribute("produit", new Produit());
+//        return "produit/addProduit";
+//    }
+//
+//    @PostMapping("/addProduit")
+//    public String produitSubmit(@ModelAttribute Produit produit, Model model) {
+//        metier.insertProduit(produit);
+//        return "redirect:/produit";
+//    }
+
+
 
 
 

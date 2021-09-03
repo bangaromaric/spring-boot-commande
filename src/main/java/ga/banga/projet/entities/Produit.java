@@ -21,8 +21,8 @@ public class Produit implements Serializable {
     private int poidsUnitaire;
     private int prixUnitaire;
 
-    @OneToMany(mappedBy = "produit")
-    private Set<LigneCommands> ligneCommande;
+//    @OneToMany(mappedBy = "produit")
+//    private Set<LigneCommands> ligneCommande;
 
 
     public Produit(String designation, Unite unite, int poidsUnitaire, int prixUnitaire) {

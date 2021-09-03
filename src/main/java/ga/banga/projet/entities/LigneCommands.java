@@ -2,6 +2,8 @@ package ga.banga.projet.entities;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,6 +21,7 @@ public class LigneCommands implements Serializable {
     @JoinColumn(name = "produit_id")
     private Produit produit;
 
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "commande_id")
     private Commande commande;
@@ -27,7 +30,7 @@ public class LigneCommands implements Serializable {
 
     public LigneCommands(Produit produit, Commande commande, int quatite) {
         this.produit = produit;
-//        this.commande = commande;
+        this.commande = commande;
         this.quatite = quatite;
     }
 

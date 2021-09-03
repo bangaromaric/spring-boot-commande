@@ -1,6 +1,8 @@
 package ga.banga.projet.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,16 +19,17 @@ public class Commande implements Serializable  {
     @GeneratedValue
     private Long id;
     private Date date;
-    private double remise;
+    private int remise;
     private double montant;
 
     @ManyToOne
     private Client client;
 
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     @OneToMany(mappedBy = "commande")
     private Set<LigneCommands> ligneCommande;
 
-    public Commande(Date date, double remise, double montant, Client client/*, Set<LigneCommands> ligneCommande*/) {
+    public Commande(Date date, int remise, double montant, Client client/*, Set<LigneCommands> ligneCommande*/) {
         this.date = date;
         this.remise = remise;
         this.montant = montant;

@@ -96,7 +96,7 @@ public class MetierImpl implements  IMetier{
 
     @Override
     public Collection<Commande> getCommandes() {
-        return null;
+        return commandeRepository.findAll();
     }
 
     @Override
@@ -111,7 +111,7 @@ public class MetierImpl implements  IMetier{
 
     @Override
     public Collection<LigneCommands> getLigneCommands() {
-        return null;
+        return ligneCommandeRepository.findAll();
     }
 
     @Override
